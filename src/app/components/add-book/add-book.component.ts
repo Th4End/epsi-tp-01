@@ -21,6 +21,12 @@ export class AddBookComponent implements OnInit {
   
   ngOnInit(): void {
     // TODO 6 : Créer un formulaire avec les champs suivants : title, author, description, category
+    this.bookForm = this.fb.group({
+      title: ['', Validators.required],
+      author: ['', Validators.required],
+      description: ['', [Validators.required, Validators.maxLength(500)]],
+      category: ['', Validators.required]
+    });
     // TODO 7 : Ajouter les validations nécessaires
   }
   
