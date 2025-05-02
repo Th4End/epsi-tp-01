@@ -26,7 +26,7 @@ Votre mission est d'identifier tous ces problèmes, de comprendre leur nature, e
    - Trouvez une solution appropriée
    - Implémentez la correction
    - Testez votre solution dans le navigateur
-5. Documentez vos corrections dans un fichier SOLUTIONS.md en expliquant:
+5. Documentez vos corrections dans un fichier [Solutions.md](Solutions.md) en expliquant:
    - La nature du problème
    - Votre solution technique
    - Les concepts Angular utilisés

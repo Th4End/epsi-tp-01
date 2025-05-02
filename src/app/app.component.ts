@@ -1,12 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { FormatTitrePipe } from './pipes/format-titre.pipe';
-import { HeaderComponent } from "./components/header/header.component";
-import { BookListComponent } from "./components/book-list/book-list.component";
+import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from './footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterLink, RouterOutlet, FormatTitrePipe, HeaderComponent, BookListComponent],
+  imports: [RouterOutlet, FooterComponent, HeaderComponent, ReactiveFormsModule],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

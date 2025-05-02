@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { FormatTitrePipe } from "../../pipes/format-titre.pipe";
-import { Router, RouterLink } from '@angular/router';
+import { FormatTitrePipe } from "../pipes/format-titre.pipe";
+import { RouterLink } from '@angular/router';
 
 
 @Component({

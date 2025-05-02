@@ -5,16 +5,17 @@ import { FormsModule } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 import { Book } from '../../models/book.model';
 import { Router } from '@angular/router';
+import { TruncatePipe } from '../../pipes/truncate.pipe';
+import { HighlightDirective } from '../../directives/highlight.directive';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule, RouterLink, FormsModule, TruncatePipe, HighlightDirective],
   templateUrl: './book-list.component.html',
 })
 export class BookListComponent implements OnInit {
   books: Book[] = [];
-  data: any[] = [];
   searchTerm: string = '';
 
   constructor(
@@ -56,6 +57,7 @@ export class BookListComponent implements OnInit {
       next: () => {
         // TODO 18: Affiche une alerte qui indique que le livre a été supprimé
         alert('Le livre a été supprimé avec succès.');
+        this.books = this.books.filter(book => book.id !== id);
         console.log('Livre supprimé:', id);
       },
       error: (err: any) => {

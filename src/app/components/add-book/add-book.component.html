@@ -1,10 +1,46 @@
-<div class="form-container">
-  <h1>Ajouter un livre</h1>
-  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
-    <input type="text" formControlName="title" placeholder="Titre du livre">
-    <input type="text" formControlName="author" placeholder="Nom de l'auteur">
-    <input type="text" formControlName="description" placeholder="Description du livre">
-    <input type="text" formControlName="category" placeholder="Catégorie du livre">
-    <button type="submit">Ajouter le livre</button>
-  </form>
-</div>
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title:</label>
+    <input id="title" formControlName="title" />
+    <div *ngIf="bookForm.get('title')?.invalid && bookForm.get('title')?.touched">
+      <ng-container *ngIf="bookForm.get('title')?.hasError('required')">
+        <small>Le titre est requis.</small>
+      </ng-container>
+    </div>
+  </div>
+
+  <div>
+    <label for="author">Author:</label>
+    <input id="author" formControlName="author" />
+    <div *ngIf="bookForm.get('author')?.invalid && bookForm.get('author')?.touched">
+      <ng-container *ngIf="bookForm.get('author')?.hasError('required')">
+        <small>L'auteur est requis.</small>
+      </ng-container>
+    </div>
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description"></textarea>
+    <div *ngIf="bookForm.get('description')?.invalid && bookForm.get('description')?.touched">
+      <ng-container *ngIf="bookForm.get('description')?.hasError('required')">
+        <small>La description est requise.</small>
+      </ng-container>
+      <ng-container *ngIf="bookForm.get('description')?.hasError('maxlength')">
+        <small>La description ne peut pas dépasser 500 caractères.</small>
+      </ng-container>
+    </div>
+  </div>
+
+  <div>
+    <label for="category">Category:</label>
+    <input id="category" formControlName="category" />
+    <div *ngIf="bookForm.get('category')?.invalid && bookForm.get('category')?.touched">
+      <ng-container *ngIf="bookForm.get('category')?.hasError('required')">
+        <small>La catégorie est requise.</small>
+      </ng-container>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="bookForm.invalid">Soumettre</button>
+</form>
