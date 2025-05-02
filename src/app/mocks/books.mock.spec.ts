@@ -1,7 +1,7 @@
-import { BooksMock } from './books.mock';
+import { BOOKS } from './books.mock';
 
-describe('BooksMock', () => {
+describe('BOOKS', () => {
   it('should create an instance', () => {
-    expect(new BooksMock()).toBeTruthy();
+    expect(BOOKS).toBeTruthy();
   });
 });

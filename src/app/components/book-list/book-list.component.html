@@ -1,10 +1,5 @@
 <h1>Ma bibliothèque</h1>
 
-
-<button routerLink="/books/add">
-  Ajouter un livre
-</button>
-
 <div class="books-container">
   <!-- TODO 13 : Les données sont passées à la liste mais pas affichées. Affiche les données -->
   <div *ngIf="data && data.length > 0; else noBooks">
@@ -26,6 +21,7 @@
         <button routerLink="/books/{{book.id}}">Détails</button>
         <button (click)="toggleFavorite(book)">{{ book.isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }}</button>
         <button (click)="deleteBook(book.id)">Supprimer</button>
+        
       </div>
     </div>
   </div>
@@ -34,3 +30,8 @@
     <p>Aucun livre dans votre bibliothèque. Commencez par en ajouter un!</p>
   </ng-template>
 </div>
+
+<button routerLink="/books/add">
+  Ajouter un livre
+</button>
+
